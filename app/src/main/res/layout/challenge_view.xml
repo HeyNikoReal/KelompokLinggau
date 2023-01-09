@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/iv_foto2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="6dp"
+            android:background="#A8A3A3"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_challenge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_foto2"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="10dp"
+            android:text="Challenge"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvmode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_challenge"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:text="Mode         :"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_challenge"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="15dp"
+            android:text="Mode"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvmaxwin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_mode"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Max Win    :"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_maxwin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_mode"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="8dp"
+            android:text="Win"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvmaxlose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_maxwin"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:text="Max Lose  :"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_maxlose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvmaxwin"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="8dp"
+            android:text="Lose"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvdeksripsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_maxlose"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="12dp"
+            android:text="Description"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_deksripsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvdeksripsi"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="8dp"
+            android:text="Deksripsi"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+</LinearLayout>
