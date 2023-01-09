@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,12 +34,12 @@ import retrofit2.Response;
 public class ChallengesActivity extends AppCompatActivity {
 
     BottomNavigationView navigasibawah;
-    List<Challenge> listchallenge;
+    List<Root> listchallenge;
     ChallengesViewAdapter adapterchallenge;
     LinearLayoutManager linearlayoutmanager;
     RecyclerView rvchallenge;
     ProgressBar pbtugas;
-
+    TextView teks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class ChallengesActivity extends AppCompatActivity {
         linearlayoutmanager = new LinearLayoutManager(ChallengesActivity.this);
         rvchallenge.setLayoutManager(linearlayoutmanager);
         pbtugas = findViewById(R.id.pb_tugas2);
+        teks = findViewById(R.id.teks2);
 
         retrievechallenges();
 
@@ -77,12 +79,12 @@ public class ChallengesActivity extends AppCompatActivity {
 
     private void retrievechallenges() {
         pbtugas.setVisibility(View.VISIBLE);
+        teks.setVisibility(View.VISIBLE);
         APIRequestData arddata = RetroServer.getRetrofit().create(APIRequestData.class);
-        Call<List<Challenge>> proses = arddata.getchallenges("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImRkYjk1NDBmLTFhOWItNDg5ZS04NDkxLTk1ODNiZGZkMjYwZSIsImlhdCI6MTY3MzE1NzE4Niwic3ViIjoiZGV2ZWxvcGVyLzFlYWUzYWQyLTE5ZmMtNzRiYi1iNzAyLTk3Yzk5MTU4NDBmMSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzUuMTU4LjM3LjIwOCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.LzYBuCMsbunQH0NaY0M6u2dMoA4TFyJA2gXl0hdYPlhv8sU7TpBlRnsJfYknfaQbhUzNpeGAekiHlJ9i0QhTTg");
-
-        proses.enqueue(new Callback<List<Challenge>>() {
+        Call<List<Root>> proses = arddata.getchallenges("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImZkZjQ5YzFlLTU0MGQtNDFkMi05NTgzLWNjMTBhYTA0ZWU3MyIsImlhdCI6MTY3MzI3Njc1MSwic3ViIjoiZGV2ZWxvcGVyLzFlYWUzYWQyLTE5ZmMtNzRiYi1iNzAyLTk3Yzk5MTU4NDBmMSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzUuMTU4LjM3LjIwOCIsIjE3NS4xNTguMzcuMTk4Il0sInR5cGUiOiJjbGllbnQifV19.vsmrnWMfp9H8HeDFnG76b3P3F1kTlM4yXlzcABymIQ1EMYazc3j6_NBwDGeIjC3nelrmuCUZXY0qV-JzL6C8ZQ");
+        proses.enqueue(new Callback<List<Root>>() {
             @Override
-            public void onResponse(Call<List<Challenge>> call, Response<List<Challenge>> response) {
+            public void onResponse(Call<List<Root>> call, Response<List<Root>> response) {
                 listchallenge = response.body();
                 adapterchallenge = new ChallengesViewAdapter(listchallenge);
                 rvchallenge.setAdapter(adapterchallenge);
@@ -90,30 +92,11 @@ public class ChallengesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Challenge>> call, Throwable t) {
+            public void onFailure(Call<List<Root>> call, Throwable t) {
                 Toast.makeText(ChallengesActivity.this, "Gagal Menghubungi Server , " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 pbtugas.setVisibility(View.INVISIBLE);
             }
         });
-
-
-//        proses.enqueue(new Callback<List<Root>>() {
-//            @Override
-//            public void onResponse(Call<List<Root>> call, Response<List<Root>> response) {
-//                listchallenge = response.body();
-//                adapterchallenge = new ChallengesViewAdapter(listchallenge);
-//                rvchallenge.setAdapter(adapterchallenge);
-//                pbtugas.setVisibility(View.INVISIBLE);
-//                Toast.makeText(ChallengesActivity.this, "RESPONSE, " + response.body(), Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Root>> call, Throwable t) {
-//                Toast.makeText(ChallengesActivity.this, "Gagal Menghubungi Server , " + t.getMessage(), Toast.LENGTH_SHORT).show();
-//                Log.d("CEK : ", t.getMessage());
-//                pbtugas.setVisibility(View.INVISIBLE);
-//            }
-//        });
     }
 
     @Override

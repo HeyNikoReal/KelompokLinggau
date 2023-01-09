@@ -1,6 +1,6 @@
 package com.mdp.kelompoklinggau.api;
 
-import com.mdp.kelompoklinggau.models.challenges.Challenge;
+import com.mdp.kelompoklinggau.models.challenges.Root;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public interface APIRequestData {
     Call<com.mdp.kelompoklinggau.models.cards.Root> getcards(@Header("Authorization") String token);
 
     @GET("challenges")
-    Call<List<Challenge>> getchallenges(@Header("Authorization") String token);
+    Call<List<Root>> getchallenges(@Header("Authorization") String token);
 
     @GET("globaltournaments")
     Call<com.mdp.kelompoklinggau.models.tournaments.Root> gettournaments(@Header("Authorization") String token);

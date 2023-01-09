@@ -7,7 +7,7 @@ public class Challenge {
     public GameMode gameMode;
     public int maxWins;
     public String iconUrl;
-
+    
     public String getName() {
         return name;
     }

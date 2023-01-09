@@ -13,14 +13,15 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.mdp.kelompoklinggau.R;
 import com.mdp.kelompoklinggau.models.challenges.Challenge;
+import com.mdp.kelompoklinggau.models.challenges.Root;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChallengesViewAdapter extends RecyclerView.Adapter<ChallengesViewAdapter.ViewHolder> {
-    private List<Challenge> challengeList = new ArrayList<>();
-
-    public ChallengesViewAdapter(List<Challenge> challengeList) {
+    private List<Root> challengeList = new ArrayList<>();
+    
+    public ChallengesViewAdapter(List<Root> challengeList) {
         this.challengeList = challengeList;
     }
 
@@ -35,7 +36,7 @@ public class ChallengesViewAdapter extends RecyclerView.Adapter<ChallengesViewAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Challenge x = challengeList.get(position);
+        Challenge x = challengeList.get(position).getChallenges().get(0);
         holder.tvjudul.setText(x.getName());
         holder.tvwin.setText(String.valueOf(x.getMaxWins()));
         holder.tvlose.setText(String.valueOf(x.getMaxLosses()));

@@ -7,6 +7,37 @@
     android:background="@drawable/background"
     tools:context=".activities.ChallengesActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_challenge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/challenge_view" />
+
+            <TextView
+                android:id="@+id/teks2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/rv_challenge"
+                android:layout_marginTop="40dp"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv_navigasi_bawah"
         android:layout_width="match_parent"
@@ -22,12 +53,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bnv_navigasi_bawah" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_challenge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/challenge_view" />
 
     <ProgressBar
         android:id="@+id/pb_tugas2"

@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class CardsActivity extends AppCompatActivity {
     LinearLayoutManager linearlayoutmanager;
     RecyclerView rvcard;
     ProgressBar pbtugas;
+    TextView teks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class CardsActivity extends AppCompatActivity {
         linearlayoutmanager = new LinearLayoutManager(CardsActivity.this);
         rvcard.setLayoutManager(linearlayoutmanager);
         pbtugas = findViewById(R.id.pb_tugas);
+        teks = findViewById(R.id.teks);
 
         retrievecard();
 
@@ -75,8 +78,9 @@ public class CardsActivity extends AppCompatActivity {
 
     private void retrievecard() {
         pbtugas.setVisibility(View.VISIBLE);
+        teks.setVisibility(View.VISIBLE);
         APIRequestData arddata = RetroServer.getRetrofit().create(APIRequestData.class);
-        Call<Root> api = arddata.getcards("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImRkYjk1NDBmLTFhOWItNDg5ZS04NDkxLTk1ODNiZGZkMjYwZSIsImlhdCI6MTY3MzE1NzE4Niwic3ViIjoiZGV2ZWxvcGVyLzFlYWUzYWQyLTE5ZmMtNzRiYi1iNzAyLTk3Yzk5MTU4NDBmMSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzUuMTU4LjM3LjIwOCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.LzYBuCMsbunQH0NaY0M6u2dMoA4TFyJA2gXl0hdYPlhv8sU7TpBlRnsJfYknfaQbhUzNpeGAekiHlJ9i0QhTTg");
+        Call<Root> api = arddata.getcards("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImZkZjQ5YzFlLTU0MGQtNDFkMi05NTgzLWNjMTBhYTA0ZWU3MyIsImlhdCI6MTY3MzI3Njc1MSwic3ViIjoiZGV2ZWxvcGVyLzFlYWUzYWQyLTE5ZmMtNzRiYi1iNzAyLTk3Yzk5MTU4NDBmMSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzUuMTU4LjM3LjIwOCIsIjE3NS4xNTguMzcuMTk4Il0sInR5cGUiOiJjbGllbnQifV19.vsmrnWMfp9H8HeDFnG76b3P3F1kTlM4yXlzcABymIQ1EMYazc3j6_NBwDGeIjC3nelrmuCUZXY0qV-JzL6C8ZQ");
         api.enqueue(new Callback<Root>() {
             @Override
             public void onResponse(Call<Root> call, Response<Root> response) {

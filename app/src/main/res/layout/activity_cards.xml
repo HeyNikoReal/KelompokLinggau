@@ -7,6 +7,38 @@
     android:background="@drawable/background"
     tools:context=".activities.CardsActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/card_view"
+                tools:itemCount="2"/>
+
+            <TextView
+                android:id="@+id/teks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/rv_card"
+                android:layout_marginTop="40dp"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv_navigasi_bawah"
         android:layout_width="match_parent"
@@ -23,19 +55,12 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bnv_navigasi_bawah" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/card_view" />
-
     <ProgressBar
         android:id="@+id/pb_tugas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone" />
-
 
 </RelativeLayout>
 
